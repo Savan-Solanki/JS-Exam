@@ -109,6 +109,7 @@ const loadQuestion = (e) => {
     return endQuiz();
   }
   reset();
+  startTimer();
   let data = questions[index];
   // console.log(data)
   quebox.innerHTML = `${index + 1}) ${data.que}`;
@@ -128,6 +129,7 @@ const submitQuiz = () => {
   }
   index++;
 
+  clearInterval(timerInterval);
   loadQuestion();
   return;
 };
@@ -154,5 +156,22 @@ const endQuiz = () => {
     <h2>${right}/${totle} Are Correct</h2>
   `;
 };
+let timerInterval;
+const timeDisplay = document.getElementById("time");
+
+const startTimer = () => {
+  let timeLeft = 30;
+  timeDisplay.textContent = timeLeft;
+  clearInterval(timerInterval);
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    timeDisplay.textContent = timeLeft;
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      submitQuiz();
+    }
+  }, 1000);
+};
+
 
 loadQuestion();

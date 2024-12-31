@@ -40,8 +40,26 @@ body {
     padding: 5px;
     font-size: 20px;
     color: #7f8fa6;
-    background-color: #192a56;
+    background-color: #404d6e;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
+
+#timer {
+    font-size: 18px;
+    font-weight: bold;
+    color: #816d6a;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    background-color: #273c75;
+    text-align: center;
+  }
+  
+  #time {
+    font-weight: bold;
+    color: #007bff; 
+  }
+  
